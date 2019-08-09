@@ -1,0 +1,78 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+#define STACKSIZE 10
+
+struct stack
+{
+    int top;
+    int items[STACKSIZE];
+};
+
+int main()
+{
+   struct stack my_stack;
+   init(&my_stack);
+   showstack(my_stack);
+
+}
+//void init(struct stack *);
+
+//int isEmpty(struct stack);
+
+//int isFull(struct stack);
+
+//void push(struct stack *, int item);
+
+//int pop(struct stack *);
+
+void init(struct stack * a_stack)
+{
+   a_stack->top=0;
+}
+void showstack(struct stack a_stack)
+{
+   int i;
+   printf("value of top %d\n",a_stack.top);
+   for (i=0;i<a_stack.top;i++)
+   {
+      printf("position %3d value %5d \n",i,a_stack.items[i]);
+   }
+}
+int isEmpty(struct stack a_stack)
+{
+  if ( a_stack.top <= 0 )
+    return 1;
+  else
+    return 0;
+}
+int isFull(struct stack a_stack)
+{
+  if (a_stack.top < STACKSIZE )
+    return 0;
+  else
+    return 1;
+}
+void push(struct stack * a_stack,int item)
+{
+  a_stack->items[a_stack->top]=item;
+  a_stack->top++;
+
+  if (isFull(my_stack))
+       printf(" Sorry, the stack is full !\n");
+else
+       push(&my_stack,a_value);
+
+}
+int pop(struct stack * a_stack)
+{
+  a_stack->top--;
+  return a_stack->items[a_stack->top];
+}
+
+
+
+
+
+

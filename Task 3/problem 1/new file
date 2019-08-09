@@ -1,0 +1,47 @@
+
+        FILE * fd;
+        int check;
+        bool serverReady;
+        fd = fopen("/tmp/server.log", "r");
+        if(fd == NULL) {
+            perror("fopen, Error opening server file");
+            return EXIT_FAILURE;
+        }
+
+        /* max length including newline */
+        static const long max_len = 30 + 1;
+        /* space for all of that plus a nul terminator */
+        char buf[max_len + 1];
+
+        /* now read that many bytes from the end of the file */
+        fseek(fd, -max_len, SEEK_END);
+        ssize_t len = read(fd, buf, max_len);
+
+        /* don't forget the nul terminator */
+        buf[len] = '\0';
+
+
+                /* and find the last newline character (there must be one, right?) */
+                char *last_newline = strrchr(buf, '\n');
+                char *last_line = last_newline+1;
+
+
+                printf( "%s\n", last_newline );
+
+
+
+
+
+
+{
+
+  while(access("dev/shm/shmserver", F_OK) == -1)
+  {
+    printf("Waiting for server");
+  }
+
+
+
+
+
+
